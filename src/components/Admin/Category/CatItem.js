@@ -26,8 +26,8 @@ import { ImUser,ImPhone, ImLocation } from "react-icons/im";
 
 import EditCategory from './EditCategory';
 
-const CatItem = ({cat,deleteCategory}) => {
-
+const CatItem = ({cat,deleteCategory,editCategory}) => {
+  
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const { colorMode, toggleColorMode } = useColorMode();
@@ -36,7 +36,7 @@ const CatItem = ({cat,deleteCategory}) => {
         <Tr>
             <Td ml='5' textAlign="left">{cat.cat_name}</Td>
             <Td textAlign="right"> 
-                {/* <Button colorScheme="teal" onClick={onOpen}  size="xs" mr='3'>
+                <Button colorScheme="teal" onClick={onOpen}  size="xs" mr='3'>
                     Edit
                 </Button> 
                
@@ -46,12 +46,11 @@ const CatItem = ({cat,deleteCategory}) => {
                         <ModalHeader>Edit Category</ModalHeader>
                         <ModalCloseButton />
                         <ModalBody pb='5'>
-                        <EditCategory editCategory={editCategory}  trigger={onClose} />
+                        <EditCategory cat_id={cat.cat_id} editCategory={editCategory}  trigger={onClose} />
                     </ModalBody>
                 </ModalContent>
-                </Modal> */}
-
-
+                </Modal>
+                
                  <Popover>
                         <PopoverTrigger>
                          <Button colorScheme="red" size="xs" mr='3'>

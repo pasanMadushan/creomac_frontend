@@ -6,12 +6,13 @@ import{
     Select
 } from "@chakra-ui/react";
 
-const EditCategory = ({cat,editCategory,trigger}) => {
+const EditCategory = ({cat_id,editCategory,trigger}) => {
+   
     const [new_name,setNewName] = useState('')
     const onSubmit = (e)=>{
         e.preventDefault()
 
-        editCategory(cat,new_name)
+        editCategory(cat_id,new_name)
         
     }
 

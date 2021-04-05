@@ -148,42 +148,46 @@ const Dashboard = () => {
     }
 
 
-//     const editCategory = ({cat,new_name})=>{
-//         Axios.post("http://localhost:5002/post/editcategory",{cat_id:cat.cat_id,new_name:new_name})
-//         .then((Response)=>{
-//             // console.log(Response);
-//             setCategory(category.map(
-//                 (cata)=>cata.cat_id===cat.cat_id?{...cata, cat_name:new_name}:cata
-//             ))
+    const editCategory = (cat_id,new_name)=>{
+        Axios.post("http://localhost:5002/post/editcategory",{cat_id:cat_id,new_name:new_name})
+        .then((Response)=>{
+         
+            if (Response.data.exist ==true){
+              toast({
+                position: "bottom-right",    
+                description: "Category Name Already Exists.",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+              })
+            }
 
+            else if (Response.data.exist == false){
+              setCategory(category.map(
+                (cata)=>cata.cat_id===cat_id?{...cata, cat_name:new_name}:cata
+            ))
 
-// // setTasks(tasks.map(
-// //         //     (task)=>task.id===id?{...task,reminder:data.reminder}:task
-// //         //   ))
-// //             var cat_id = Response.data.insertId;
-// //                 var newCat = {cat_id,cat_name}
-// //                 setCategory([...category,newCat]);
+            toast({
+                position: "bottom-right",    
+                description: "Category Edited successfully",
+                status: "success",
+                duration: 5000,
+                isClosable: true,
+              })
+            }
+            
+        })
+        .catch((err) => {
+            toast({
+                position: "bottom-right",    
+                description: "Internal Server Error. Try again later",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+              })
+          }); 
 
-
-//             toast({
-//                 position: "bottom-right",    
-//                 description: "Category Edited successfully",
-//                 status: "error",
-//                 duration: 5000,
-//                 isClosable: true,
-//               })
-//         })
-//         .catch((err) => {
-//             toast({
-//                 position: "bottom-right",    
-//                 description: "Internal Server Error. Try again later",
-//                 status: "error",
-//                 duration: 5000,
-//                 isClosable: true,
-//               })
-//           }); 
-
-//     }
+    }
 
 
   return (
@@ -238,7 +242,7 @@ const Dashboard = () => {
                                     <Table variant="simple" border='1px solid teal' >
                                                                       
                                         <Tbody>
-                                            <CatItems cat={category}  deleteCategory = {deleteCategory}/>
+                                            <CatItems cat={category}  deleteCategory = {deleteCategory}  editCategory={editCategory}/>
                                            
                                         </Tbody>
                                     </Table>                                    
