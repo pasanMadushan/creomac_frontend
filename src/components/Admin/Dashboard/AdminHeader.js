@@ -84,7 +84,7 @@ function AdminHeader(props) {
       
 
         <MenuItems>
-        <Link href="http://localhost:3002/" isExternal>
+        <Link href="http://localhost:3002/" >
           View Blog <ExternalLinkIcon mx="2px" />
         </Link>
     

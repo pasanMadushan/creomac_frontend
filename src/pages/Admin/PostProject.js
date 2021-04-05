@@ -13,12 +13,15 @@ import {
     Flex
     
   } from "@chakra-ui/react";
+  
 
 import DashboardSidebar from '../../components/Admin/Dashboard/DashboardSidebar';
 import AdminHeader from '../../components/Admin/Dashboard/AdminHeader';
 import MiniHeader from '../../components/Admin/Dashboard/MiniHeader';
 
-const Dashboard = () => {
+import PostEditor from '../../components/Admin/PostProject/PostEditor';
+
+const PostProject = () => {
 
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -47,16 +50,14 @@ const Dashboard = () => {
                         <Grid>
 
                             <GridItem  >
-                                <MiniHeader title="Projects"/>
+                                <MiniHeader title="Post A Project"/>
                             </GridItem>
 
-                            <GridItem p='5'>
-                              <Grid templateColumns="repeat(5, 1fr)">
-                                <GridItem colSpan={5}>
-
-                                </GridItem>
-                                
-                              </Grid>
+                            <GridItem p='5'  >
+                             
+                                    <PostEditor />
+                              
+                               
                             </GridItem>
                        
                              
@@ -70,4 +71,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default PostProject

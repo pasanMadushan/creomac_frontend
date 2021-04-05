@@ -7,7 +7,8 @@ import {
     Divider,
     Link,
     Button,
-    useColorMode
+    useColorMode,
+    ReactRouterLink
   } from "@chakra-ui/react";
 
 import { EmailIcon,PlusSquareIcon } from "@chakra-ui/icons";
@@ -36,17 +37,17 @@ const DashboardSidebar = () => {
            
                     
         >                   
-                <Link > <Button leftIcon={<FaRegNewspaper />}  colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}>Projects </Button> </Link>     
+                <Link as={ReactRouterLink} href='/dashboard'> <Button leftIcon={<FaRegNewspaper />}  colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}>Projects </Button> </Link>     
           
-                <Link > <Button  leftIcon={<FaRegEdit />} colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}> Post a Project  </Button> </Link>     
+                <Link as={ReactRouterLink} href='/postproject'> <Button  leftIcon={<FaRegEdit />} colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}> Post a Project  </Button> </Link>     
          
-                <Link > <Button leftIcon={<FaBuffer />} colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}> Cetegories  </Button></Link>     
+                <Link as={ReactRouterLink} href='/category'>  <Button leftIcon={<FaBuffer />} colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}> Categories  </Button></Link>     
             
-                <Link ><Button leftIcon={<FaRegUser />} colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}> Manage Users </Button></Link>     
+                <Link as={ReactRouterLink} href='/manageusers'><Button leftIcon={<FaRegUser />} colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}> Manage Users </Button></Link>     
          
-                <Link ><Button leftIcon={<FaRegSun />} colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}>Edit Profile </Button></Link>   
+                <Link as={ReactRouterLink} href='/editprofile'><Button leftIcon={<FaRegSun />} colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}>Edit Profile </Button></Link>   
 
-                <Link ><Button leftIcon={<EmailIcon />} colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}>Newsteller Subscribers </Button></Link>   
+                <Link as={ReactRouterLink} href='/newsteller'><Button leftIcon={<EmailIcon />} colorScheme="teal" bg={colorMode === "light" ? "cyan.900" : "cyan.50"} size="md" style={sidebarButton}> Subscribers </Button></Link>   
            
         </Box>
     )
